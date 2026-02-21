@@ -266,6 +266,30 @@
             vertical-align: middle;
         }
 
+        /* SECCIÓN SOBRE NOSOTROS */
+        .sobre-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--color-surface);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: var(--radius-card);
+            padding: 3rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .sobre-content p {
+            font-size: 1.2rem;
+            color: var(--color-text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .sobre-content p:last-child {
+            margin-bottom: 0;
+        }
+
         /* TARJETAS DE SERVICIOS CON EFECTO GLASS Y BORDE GRADIENTE */
         .servicios-grid {
             display: grid;
@@ -324,7 +348,6 @@
             font-size: 1rem;
             line-height: 1.6;
         }
-
 
         .timeline-moderna {
             display: flex;
@@ -415,6 +438,7 @@
             color: var(--color-text-light);
         }
 
+        /* CONTACTO CON FONDO SÓLIDO MODERNO Y MÚLTIPLES OPCIONES */
         .contacto {
             background: linear-gradient(135deg, var(--color-primary), #1c3f5c);
             border-radius: 4rem;
@@ -496,7 +520,6 @@
         @media (max-width: 800px) {
             .nav-links {
                 display: none;
-                /* TODO */
             }
 
             nav {
@@ -539,8 +562,17 @@
                 width: 100%;
                 justify-content: center;
             }
+
+            .sobre-content {
+                padding: 2rem;
+            }
+
+            .sobre-content p {
+                font-size: 1.1rem;
+            }
         }
 
+        /* ANIMACIONES DE ENTRADA */
         @keyframes fadeUp {
             0% {
                 opacity: 0;
@@ -561,10 +593,8 @@
 </head>
 
 <body>
-    <!-- FORMAS ABSTRACTAS -->
     <div class="shape-blob"></div>
     <div class="shape-blob2"></div>
-
 
     <nav>
         <div class="nav-container">
@@ -589,6 +619,26 @@
             <a href="#contacto" class="btn-primary">
                 <span>Solicitar evaluación</span> <i class="fas fa-arrow-right"></i>
             </a>
+        </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS (nueva sección) -->
+    <section id="sobre-nosotros">
+        <div class="container">
+            <h2><i class="fas fa-users"></i> Sobre PampaHacking</h2>
+            <div class="sobre-content">
+                <p>
+                    Somos una iniciativa de ciberseguridad con base en General Pico, La Pampa, 
+                    orientada a ayudar a pequeñas y medianas empresas a evaluar y reducir su exposición frente a amenazas digitales.
+                </p>
+                <p>
+                    Creemos que la seguridad informática no debe ser un servicio exclusivo de grandes corporaciones. 
+                    Nuestro enfoque combina metodología profesional, atención personalizada y comprensión del contexto local.
+                </p>
+                <p>
+                    Trabajamos de forma directa con cada cliente, explicando riesgos en términos claros y proponiendo soluciones realistas y aplicables.
+                </p>
+            </div>
         </div>
     </section>
 
@@ -684,7 +734,6 @@
         </div>
     </section>
 
-    <!-- CONTACTO -->
     <section id="contacto">
         <div class="container">
             <div class="contacto">
