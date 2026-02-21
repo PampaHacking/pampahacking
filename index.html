@@ -341,6 +341,52 @@
             line-height: 1.6;
         }
 
+        /* Estilos para la sección FAQ (reutiliza .servicio-card pero podemos ajustar) */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .faq-card {
+            background: var(--color-surface);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: var(--radius-card);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .faq-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .faq-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .faq-card h3 i {
+            color: var(--color-accent);
+            font-size: 1.8rem;
+        }
+
+        .faq-card p {
+            color: var(--color-text-light);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
         .timeline-moderna {
             display: flex;
             flex-wrap: wrap;
@@ -558,6 +604,10 @@
             .sobre-content p {
                 font-size: 1.1rem;
             }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @keyframes fadeUp {
@@ -587,9 +637,11 @@
         <div class="nav-container">
             <div class="logo">PampaHacking</div>
             <div class="nav-links">
+                <a href="#sobre-nosotros">Sobre Nosotros</a>
                 <a href="#servicios">Servicios</a>
                 <a href="#metodologia">Metodología</a>
                 <a href="#diferencial">Diferencial</a>
+                <a href="#faq">FAQ</a>
                 <a href="#contacto" class="btn-outline">Contacto</a>
             </div>
         </div>
@@ -710,6 +762,39 @@
                     <i class="fas fa-building"></i>
                     <h3>Adaptado a pymes</h3>
                     <p>Entendemos las necesidades argentinas: servicios accesibles y relevantes para <strong>pymes</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE PREGUNTAS FRECUENTES (FAQ) -->
+    <section id="faq">
+        <div class="container">
+            <h2><i class="fas fa-question-circle"></i> Preguntas frecuentes</h2>
+            <div class="faq-grid">
+                <div class="faq-card">
+                    <h3><i class="fas fa-envelope-open-text"></i> ¿Qué es el phishing?</h3>
+                    <p>El phishing es una técnica de ingeniería social que utilizan los atacantes para engañar a las personas y obtener información confidencial (como contraseñas o datos bancarios) haciéndose pasar por una entidad de confianza. Nuestras simulaciones ayudan a concienciar a tus empleados.</p>
+                </div>
+                <div class="faq-card">
+                    <h3><i class="fas fa-shield-alt"></i> ¿Por qué es importante estar prevenidos?</h3>
+                    <p>Porque los ataques de phishing son la puerta de entrada más común a las empresas. Un solo empleado que caiga en una trampa puede comprometer toda la red. La prevención reduce drásticamente el riesgo de sufrir un incidente grave.</p>
+                </div>
+                <div class="faq-card">
+                    <h3><i class="fas fa-user"></i> ¿Sabías que el ser humano es el punto de entrada más frecuente?</h3>
+                    <p>Más del 80% de los incidentes de seguridad involucran algún factor humano. Por eso, además de tecnología, trabajamos concientizando a las personas a través de simulaciones y capacitaciones personalizadas.</p>
+                </div>
+                <div class="faq-card">
+                    <h3><i class="fas fa-briefcase"></i> ¿Qué servicios ofrecen exactamente?</h3>
+                    <p>Realizamos simulaciones de phishing, auditorías de aplicaciones web, análisis de vulnerabilidades, capacitaciones y reportes ejecutivos. Todo adaptado a las necesidades de pymes argentinas.</p>
+                </div>
+                <div class="faq-card">
+                    <h3><i class="fas fa-lock"></i> ¿Cómo garantizan la confidencialidad?</h3>
+                    <p>Firmamos acuerdos de confidencialidad con cada cliente, manejamos la información bajo estrictas políticas de privacidad y todos los resultados de las pruebas son entregados únicamente a las personas autorizadas.</p>
+                </div>
+                <div class="faq-card">
+                    <h3><i class="fas fa-chart-line"></i> ¿Qué metodología utilizan?</h3>
+                    <p>Seguimos un proceso de 5 pasos: reunión inicial, definición de alcance, simulación controlada, reporte técnico y capacitación. Nos basamos en estándares de la industria como OWASP.</p>
                 </div>
             </div>
         </div>
