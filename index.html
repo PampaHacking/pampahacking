@@ -168,6 +168,21 @@
             box-shadow: 0 10px 20px -8px var(--color-primary);
         }
 
+        /* Menú hamburguesa */
+        .menu-toggle {
+            display: none;
+            font-size: 2rem;
+            color: var(--color-primary);
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            transition: var(--transition);
+        }
+
+        .menu-toggle:hover {
+            color: var(--color-accent);
+        }
+
         .hero {
             padding: 12rem 0 6rem;
             position: relative;
@@ -341,7 +356,6 @@
             line-height: 1.6;
         }
 
-        /* Estilos para la sección FAQ (reutiliza .servicio-card pero podemos ajustar) */
         .faq-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -554,12 +568,42 @@
         @media (max-width: 800px) {
             .nav-links {
                 display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--color-surface-solid);
+                backdrop-filter: blur(15px);
+                border-radius: 2rem;
+                padding: 2rem;
+                box-shadow: var(--shadow-hover);
+                gap: 1.5rem;
+                border: 1px solid rgba(255, 255, 255, 0.5);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .btn-outline {
+                margin-top: 0.5rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .menu-toggle {
+                display: block;
             }
 
             nav {
-                top: 1rem;
-                width: calc(100% - 2rem);
-                padding: 0 1rem;
+                padding: 0.6rem 1.5rem;
             }
 
             .hero {
@@ -636,7 +680,10 @@
     <nav>
         <div class="nav-container">
             <div class="logo">PampaHacking</div>
-            <div class="nav-links">
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="nav-links">
                 <a href="#sobre-nosotros">Sobre Nosotros</a>
                 <a href="#servicios">Servicios</a>
                 <a href="#metodologia">Metodología</a>
@@ -767,7 +814,6 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE PREGUNTAS FRECUENTES (FAQ) -->
     <section id="faq">
         <div class="container">
             <h2><i class="fas fa-question-circle"></i> Preguntas frecuentes</h2>
@@ -808,10 +854,10 @@
                     <a href="mailto:contacto@pampahacking.com" class="contacto-item">
                         <i class="fas fa-envelope"></i> contacto@pampahacking.com
                     </a>
-                    <a href="#" class="contacto-item" target="_blank" rel="noopener">
+                    <a href="#" class="contacto-item">
                         <i class="fab fa-whatsapp"></i> WhatsApp
                     </a>
-                    <a href="#" class="contacto-item" target="_blank" rel="noopener">
+                    <a href="#" class="contacto-item">
                         <i class="fab fa-instagram"></i> Instagram
                     </a>
                 </div>
@@ -825,6 +871,45 @@
             <p>© 2026 · <strong>Seguridad ofensiva</strong> aplicada a empresas · Argentina</p>
         </div>
     </footer>
+
+    <script>
+        // Menú hamburguesa
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            // Cambiar ícono entre bars y times
+            const icon = menuToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Cerrar menú al hacer clic fuera (opcional)
+        document.addEventListener('click', (event) => {
+            if (!navLinks.contains(event.target) && !menuToggle.contains(event.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    </script>
 </body>
 
 </html>
